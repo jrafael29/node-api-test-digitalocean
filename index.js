@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const hostname = 'localhost'
 
 const app = express()
 
@@ -13,4 +14,4 @@ app.get('/', (req, res) => {
     return res.sendFile(__dirname+'/pages/home.html');
 })
 
-http.createServer(app).listen(3000).on("listening", () => console.log("rodando na 3000"))
+http.createServer(app).listen(3000, hostname).on("listening", () => console.log("rodando na 3000"))
